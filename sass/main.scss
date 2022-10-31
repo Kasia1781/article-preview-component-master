@@ -1,0 +1,261 @@
+@use './colors' as c;
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	font-family: 'Manrope', sans-serif;
+	background-color: c.$Light-Grayish-Blue;
+}
+
+.card {
+	width: 330px;
+	border-radius: 10px;
+	background-color: white;
+
+	&__img-mobile {
+		background-image: url('/img/drawers.jpg');
+		height: 220px;
+		background-size: cover;
+		border-radius: 10px 10px 0 0;
+	}
+
+	&__img-desktop {
+		display: none;
+	}
+
+	&__body {
+		padding: 30px;
+	}
+
+	&__tittle-first {
+		margin-bottom: 10px;
+
+		p {
+			font-size: 1.7rem;
+			font-weight: 700;
+			color: c.$Very-Dark-Grayish-Blue;
+		}
+	}
+
+	&__tittle-second p {
+		font-size: 1.3rem;
+		line-height: 20px;
+		color: c.$Grayish-Blue;
+	}
+
+	&__footer {
+		display: flex;
+		padding: 20px 0 0 0;
+
+		img {
+			width: 15%;
+			border-radius: 50%;
+		}
+
+		&-date {
+			margin-left: 10px;
+
+			p {
+				font-size: 1.3rem;
+				line-height: 20px;
+			}
+
+			.name {
+				font-weight: bold;
+				color: c.$Very-Dark-Grayish-Blue;
+			}
+			.date {
+				color: c.$Grayish-Blue;
+			}
+		}
+
+		button {
+			margin-left: 60px;
+			padding: 1em;
+			border-radius: 50%;
+			border: none;
+			cursor: pointer;
+			background-color: c.$Light-Grayish-Blue;
+
+			i {
+				color: c.$Desaturated-Dark-Blue;
+			}
+		}
+
+		&-share {
+			display: none;
+			background-color: c.$Very-Dark-Grayish-Blue;
+			border-radius: 0 0 10px 10px;
+
+			.share {
+				padding: 25px 10px 10px 30px;
+				font-size: 1.3rem;
+				text-transform: uppercase;
+				letter-spacing: 5px;
+				color: c.$Grayish-Blue;
+			}
+
+			a {
+				font-size: 2em;
+				color: white;
+				padding: 20px 5px 5px;
+			}
+
+			.btn2 {
+				margin-left: 70px;
+				margin-top: 15px;
+				margin-bottom: 20px;
+				padding: 0.8em;
+				border-radius: 50%;
+				border: none;
+				cursor: pointer;
+				background-color: c.$Desaturated-Dark-Blue;
+
+				i {
+					color: white;
+				}
+			}
+		}
+		&-share2 {
+			display: none;
+		}
+
+		&-desktop {
+			display: none;
+		}
+	}
+}
+
+@media (min-width: 1000px) {
+	.card {
+		position: relative;
+		display: flex;
+		width: 740px;
+		height: 280px;
+
+		&__img-mobile {
+			height: 280px;
+			padding: 14em;
+			background-image: url('/img/drawers.jpg');
+			background-size: cover;
+			border-radius: 10px 0 0 10px;
+		}
+
+		&__tittle-first {
+			margin-bottom: 10px;
+
+			p {
+				font-size: 2.3rem;
+				font-weight: 700;
+				color: c.$Very-Dark-Grayish-Blue;
+			}
+		}
+
+		&__footer {
+			display: none;
+		}
+
+		button {
+			margin-left: 180px;
+
+			&:hover {
+				background-color: c.$Desaturated-Dark-Blue;
+			}
+
+			i {
+				&:hover {
+					color: white;
+				}
+			}
+		}
+
+		&__body {
+			display: flex;
+			justify-content: space-between;
+			flex-direction: column;
+		}
+	}
+	.card__footer-desktop {
+		display: flex;
+		padding: 20px 0 0 0;
+
+		img {
+			width: 10%;
+			border-radius: 50%;
+            margin-bottom: 30px;
+		}
+
+		&-date {
+			margin-left: 10px;
+
+			p {
+				font-size: 1.3rem;
+				line-height: 20px;
+			}
+
+			.desktop-name {
+				font-weight: bold;
+				color: c.$Very-Dark-Grayish-Blue;
+			}
+			.desktop-date {
+				color: c.$Grayish-Blue;
+			}
+		}
+
+		.btn1 {
+			margin-left: 200px;
+			margin-top: 10px;
+			margin-bottom: 25px;
+			padding: 0.8em;
+			border-radius: 50%;
+			border: none;
+			cursor: pointer;
+			background-color: c.$Desaturated-Dark-Blue;
+
+			i {
+				color: white;
+			}
+		}
+	}
+	.card__footer-share2 {
+		position: absolute;
+		justify-content: space-around;
+		padding: 10px 40px;
+		width: 250px;
+		background-color: c.$Very-Dark-Grayish-Blue;
+		border-radius: 10px;
+		top: 120px;
+		right: -70px;
+
+		.share {
+			padding: 5px;
+			font-size: 1.3rem;
+			text-transform: uppercase;
+			letter-spacing: 5px;
+			color: c.$Grayish-Blue;
+		}
+
+		a {
+			font-size: 2em;
+			color: white;
+		}
+	}
+
+	.card__footer-share {
+		display: none;
+	}
+}

@@ -1,0 +1,221 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Manrope", sans-serif;
+  background-color: hsl(210deg, 46%, 95%);
+}
+
+.card {
+  width: 330px;
+  border-radius: 10px;
+  background-color: white;
+}
+.card__img-mobile {
+  background-image: url("/img/drawers.jpg");
+  height: 220px;
+  background-size: cover;
+  border-radius: 10px 10px 0 0;
+}
+.card__img-desktop {
+  display: none;
+}
+.card__body {
+  padding: 30px;
+}
+.card__tittle-first {
+  margin-bottom: 10px;
+}
+.card__tittle-first p {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: hsl(217deg, 19%, 35%);
+}
+.card__tittle-second p {
+  font-size: 1.3rem;
+  line-height: 20px;
+  color: hsl(212deg, 23%, 69%);
+}
+.card__footer {
+  display: flex;
+  padding: 20px 0 0 0;
+}
+.card__footer img {
+  width: 15%;
+  border-radius: 50%;
+}
+.card__footer-date {
+  margin-left: 10px;
+}
+.card__footer-date p {
+  font-size: 1.3rem;
+  line-height: 20px;
+}
+.card__footer-date .name {
+  font-weight: bold;
+  color: hsl(217deg, 19%, 35%);
+}
+.card__footer-date .date {
+  color: hsl(212deg, 23%, 69%);
+}
+.card__footer button {
+  margin-left: 60px;
+  padding: 1em;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background-color: hsl(210deg, 46%, 95%);
+}
+.card__footer button i {
+  color: hsl(214deg, 17%, 51%);
+}
+.card__footer-share {
+  display: none;
+  background-color: hsl(217deg, 19%, 35%);
+  border-radius: 0 0 10px 10px;
+}
+.card__footer-share .share {
+  padding: 25px 10px 10px 30px;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: hsl(212deg, 23%, 69%);
+}
+.card__footer-share a {
+  font-size: 2em;
+  color: white;
+  padding: 20px 5px 5px;
+}
+.card__footer-share .btn2 {
+  margin-left: 70px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  padding: 0.8em;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background-color: hsl(214deg, 17%, 51%);
+}
+.card__footer-share .btn2 i {
+  color: white;
+}
+.card__footer-share2 {
+  display: none;
+}
+.card__footer-desktop {
+  display: none;
+}
+
+@media (min-width: 1000px) {
+  .card {
+    position: relative;
+    display: flex;
+    width: 740px;
+    height: 280px;
+  }
+  .card__img-mobile {
+    height: 280px;
+    padding: 14em;
+    background-image: url("/img/drawers.jpg");
+    background-size: cover;
+    border-radius: 10px 0 0 10px;
+  }
+  .card__tittle-first {
+    margin-bottom: 10px;
+  }
+  .card__tittle-first p {
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: hsl(217deg, 19%, 35%);
+  }
+  .card__footer {
+    display: none;
+  }
+  .card button {
+    margin-left: 180px;
+  }
+  .card button:hover {
+    background-color: hsl(214deg, 17%, 51%);
+  }
+  .card button i:hover {
+    color: white;
+  }
+  .card__body {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  .card__footer-desktop {
+    display: flex;
+    padding: 20px 0 0 0;
+  }
+  .card__footer-desktop img {
+    width: 10%;
+    border-radius: 50%;
+    margin-bottom: 30px;
+  }
+  .card__footer-desktop-date {
+    margin-left: 10px;
+  }
+  .card__footer-desktop-date p {
+    font-size: 1.3rem;
+    line-height: 20px;
+  }
+  .card__footer-desktop-date .desktop-name {
+    font-weight: bold;
+    color: hsl(217deg, 19%, 35%);
+  }
+  .card__footer-desktop-date .desktop-date {
+    color: hsl(212deg, 23%, 69%);
+  }
+  .card__footer-desktop .btn1 {
+    margin-left: 200px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    padding: 0.8em;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background-color: hsl(214deg, 17%, 51%);
+  }
+  .card__footer-desktop .btn1 i {
+    color: white;
+  }
+  .card__footer-share2 {
+    position: absolute;
+    justify-content: space-around;
+    padding: 10px 40px;
+    width: 250px;
+    background-color: hsl(217deg, 19%, 35%);
+    border-radius: 10px;
+    top: 120px;
+    right: -70px;
+  }
+  .card__footer-share2 .share {
+    padding: 5px;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: hsl(212deg, 23%, 69%);
+  }
+  .card__footer-share2 a {
+    font-size: 2em;
+    color: white;
+  }
+  .card__footer-share {
+    display: none;
+  }
+}/*# sourceMappingURL=main.css.map */
