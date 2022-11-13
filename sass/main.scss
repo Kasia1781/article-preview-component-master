@@ -68,11 +68,6 @@ body {
 
 	&__footer {
 		display: flex;
-		// znów margin auto - żeby sam wyliczył
-		// ile ma miejsca
-		// uwaga: ten trik działa tylko gdy
-		// parent ma ustaloną wysokość (tak jak tu
-		// - card ma ustawiony konkretny height)
 		margin-top: 20px;
 
 		img {
