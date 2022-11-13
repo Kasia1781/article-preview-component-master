@@ -1,24 +1,12 @@
-const btn = document.querySelector('button');
-const btn1 = document.querySelector('.btn1');
-const btn2 = document.querySelector('.btn2');
-const removeBtn = document.querySelector('.card__footer');
-const addBtn = document.querySelector('.card__footer-share');
-const addBtn2 = document.querySelector('.card__footer-share2');
-const addBtn3 = document.querySelector('.card__footer-desktop')
+const shareButton = document.querySelector('.btn');
+const sharePanelBtn = document.querySelector('.btn2');
+const sharePanel = document.querySelector('.card__footer-share');
 
-const remove = () => {
-	removeBtn.style.display = 'none';
-	addBtn.style.display = 'flex';
-};
-const add = () => {
-	removeBtn.style.display = 'flex';
-	addBtn.style.display = 'none';
+const toggleSharePanel = () => {
+	// toggle działa jak przełącznik - usuwa klasę jeśli już jest
+	// a jeśli nie ma - to dodaje
+	sharePanel.classList.toggle('hidden');
 };
 
-const add2 = () => {
-	addBtn2.style.display = 'flex';
-};
-
-btn.addEventListener('click', remove);
-btn2.addEventListener('click', add);
-btn1.addEventListener('click', add2);
+shareButton.addEventListener('click', toggleSharePanel);
+sharePanelBtn.addEventListener('click', toggleSharePanel);

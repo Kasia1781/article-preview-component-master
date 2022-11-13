@@ -21,7 +21,15 @@ body {
 	background-color: c.$Light-Grayish-Blue;
 }
 
+.hidden {
+	// generalnie używanie !important to zła praktyka,
+	// ale przy tego typu klasie gdzie zależy nam
+	// żeby na pewno zadziałała jest ok :)
+	display: none !important;
+}
+
 .card {
+	position: relative;
 	width: 330px;
 	border-radius: 10px;
 	background-color: white;
@@ -39,6 +47,7 @@ body {
 
 	&__body {
 		padding: 30px;
+		padding-bottom: 20px;
 	}
 
 	&__tittle-first {
@@ -59,10 +68,19 @@ body {
 
 	&__footer {
 		display: flex;
-		padding: 20px 0 0 0;
+		// znów margin auto - żeby sam wyliczył
+		// ile ma miejsca
+		// uwaga: ten trik działa tylko gdy
+		// parent ma ustaloną wysokość (tak jak tu
+		// - card ma ustawiony konkretny height)
+		margin-top: 20px;
 
 		img {
-			width: 15%;
+			// zdjęcie ma mieć taki sam rozmiar
+			// i na małym i na dużym ekranie,
+			// więc lepiej ustawić bezweględną wartość.
+			// Względna = % = zależna od szerokości parenta
+			width: 40px;
 			border-radius: 50%;
 		}
 
@@ -84,25 +102,48 @@ body {
 		}
 
 		button {
-			margin-left: 60px;
+			// lepiej dać auto zamiast konkretnej wartości
+			// - wtedy automatycznie wypełni całe puste
+			// miejsce
+			margin-left: auto;
 			padding: 1em;
 			border-radius: 50%;
 			border: none;
 			cursor: pointer;
 			background-color: c.$Light-Grayish-Blue;
 
+			&:hover {
+					background-color: c.$Desaturated-Dark-Blue;
+
+					// zagnieżdżamy "i" tutaj
+					// żeby zmieniła kolor gdy button ma hover
+					// (w poprzedniej wersji trzeba było najechać
+					// kursorem bezpośrednio na ikonkę)
+					i {
+						color: white;
+					}
+			}
+			
 			i {
 				color: c.$Desaturated-Dark-Blue;
 			}
 		}
 
 		&-share {
-			display: none;
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			display: flex;
+			align-items: center;
+			column-gap: 15px;
+			padding: 20px 30px;
 			background-color: c.$Very-Dark-Grayish-Blue;
 			border-radius: 0 0 10px 10px;
 
 			.share {
-				padding: 25px 10px 10px 30px;
+				// indywidualne paddingi zamieniłam
+				// na flex i column-gap wyżej
+				// padding: 25px 10px 10px 30px;
 				font-size: 1.3rem;
 				text-transform: uppercase;
 				letter-spacing: 5px;
@@ -112,13 +153,11 @@ body {
 			a {
 				font-size: 2em;
 				color: white;
-				padding: 20px 5px 5px;
+				// padding: 20px 5px 5px;
 			}
 
 			.btn2 {
-				margin-left: 70px;
-				margin-top: 15px;
-				margin-bottom: 20px;
+				margin-left: auto;
 				padding: 0.8em;
 				border-radius: 50%;
 				border: none;
@@ -128,6 +167,10 @@ body {
 				i {
 					color: white;
 				}
+			}
+
+			&-triangle {
+				display: none;
 			}
 		}
 		&-share2 {
@@ -142,7 +185,6 @@ body {
 
 @media (min-width: 1000px) {
 	.card {
-		position: relative;
 		display: flex;
 		width: 740px;
 		height: 280px;
@@ -166,21 +208,15 @@ body {
 		}
 
 		&__footer {
-			display: none;
-		}
+			// używamy footera z wersji mobilnej
+			// display: none;
 
-		button {
-			margin-left: 180px;
-
-			&:hover {
-				background-color: c.$Desaturated-Dark-Blue;
-			}
-
-			i {
-				&:hover {
-					color: white;
-				}
-			}
+			// znów margin auto - żeby sam wyliczył
+			// ile ma miejsca
+			// uwaga: ten trik działa tylko gdy
+			// parent ma ustaloną wysokość (tak jak tu
+			// - card ma ustawiony konkretny height)
+			margin-top: auto;
 		}
 
 		&__body {
@@ -189,73 +225,30 @@ body {
 			flex-direction: column;
 		}
 	}
-	.card__footer-desktop {
-		display: flex;
-		padding: 20px 0 0 0;
-
-		img {
-			width: 10%;
-			border-radius: 50%;
-            margin-bottom: 30px;
-		}
-
-		&-date {
-			margin-left: 10px;
-
-			p {
-				font-size: 1.3rem;
-				line-height: 20px;
-			}
-
-			.desktop-name {
-				font-weight: bold;
-				color: c.$Very-Dark-Grayish-Blue;
-			}
-			.desktop-date {
-				color: c.$Grayish-Blue;
-			}
-		}
-
-		.btn1 {
-			margin-left: 200px;
-			margin-top: 10px;
-			margin-bottom: 25px;
-			padding: 0.8em;
-			border-radius: 50%;
-			border: none;
-			cursor: pointer;
-			background-color: c.$Desaturated-Dark-Blue;
-
-			i {
-				color: white;
-			}
-		}
-	}
-	.card__footer-share2 {
-		position: absolute;
-		justify-content: space-around;
-		padding: 10px 40px;
-		width: 250px;
-		background-color: c.$Very-Dark-Grayish-Blue;
-		border-radius: 10px;
-		top: 120px;
-		right: -70px;
-
-		.share {
-			padding: 5px;
-			font-size: 1.3rem;
-			text-transform: uppercase;
-			letter-spacing: 5px;
-			color: c.$Grayish-Blue;
-		}
-
-		a {
-			font-size: 2em;
-			color: white;
-		}
-	}
-
 	.card__footer-share {
-		display: none;
+		width: 250px;
+		border-radius: 10px;
+		right: -75px;
+		bottom: 90px;
+		padding-top: 15px;
+		padding-bottom: 15px;
+		justify-content: center;
+
+		.btn2 {
+			display: none;
+		}
+
+		// Jak zrobić "dziubek"?
+		// Tworzymy kwadrat i obracamy go o 45 stopni
+		// i ustawiamy tam gdzie chcemy :)
+		&-triangle {
+			display: block;
+			width: 20px;
+			height: 20px;
+			background-color: inherit;
+			position: absolute;
+			bottom: -10px;
+			transform: rotate(45deg);
+		}
 	}
 }
